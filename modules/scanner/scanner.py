@@ -1,14 +1,22 @@
 import os
-import symbolTableManager as symbolTableManager
+from modules.symbolTableManager import symbolTableManager as SymbolTableManager
 
-from token_dfa import char_to_col
-from token_dfa import state_to_token
-from token_dfa import state_to_error_message
-from token_dfa import unclosed_comment_states
-from token_dfa import whitespaces
-from token_dfa import token_dfa
-from token_dfa import F
-from token_dfa import Fstar
+from modules.dfa import token_dfa as char_to_col
+from modules.dfa import token_dfa as state_to_token
+from modules.dfa import token_dfa as state_to_error_message
+from modules.dfa import token_dfa as unclosed_comment_states
+from modules.dfa import token_dfa as whitespaces
+from modules.dfa import token_dfa as token_dfa
+from modules.dfa import token_dfa as F
+from modules.dfa import token_dfa as Fstar
+
+#from token_dfa import state_to_token
+#from token_dfa import state_to_error_message
+#from token_dfa import unclosed_comment_states
+#from token_dfa import whitespaces
+#from token_dfa import token_dfa
+#from token_dfa import F
+#from token_dfa import Fstar
 
 script_dir = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
@@ -188,7 +196,7 @@ class Scanner(object):
                         err_token = self.input[:mucs]
                         if len(self.input) > len(err_token):
                             err_token = err_token + " ..."
-                        symbolTableManager.SymbolTableManager.error_flag = True
+                         ymbolTableManager.SymbolTableManager.error_flag = True
                         self._lexical_errors.append(
                             (self.line_number, err_token, "unclosed comment"))
                     self.line_number += self.input.count("\n")
